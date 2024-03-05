@@ -1,6 +1,3 @@
-/*
-** classe stack
-*/
 
 package S_Stack;
 
@@ -29,40 +26,11 @@ public class Stack<T> {
     }
     
     public String toString() {
-        String s = "Contenuto della pila:\n";
+        String s = "Il contenuto della pila:\n";
         for (int i=0; i<list.size(); i++) {
             s += list.get(i) + "\n";
         }
         return s;
     }    
     
-}
-
-public class Reverse {
-    public static void main(String[] args) {
-        Stack<String> stack = new Stack<>();
-
-        String inputFile = "input.txt";
-        String outputFile = "output.txt";
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                stack.push(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
-            while (!stack.isEmpty()) {
-                String sentence = stack.pop();
-                writer.write(sentence);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
