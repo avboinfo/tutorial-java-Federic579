@@ -31,6 +31,34 @@ public class Lista {
         }
     }
 
+    public void addSorted( Nodo n){
+        if ( isEmpty()){
+            radice = n;
+            n.setSuccessivo(null);
+            return;
+        }
+
+        int vN = n.getValore();
+        if (vN < radice.getValore()) {
+            n.setSuccessivo(radice);
+            radice = n;
+            return;
+        }
+        
+        Nodo p1 = radice;
+        Nodo p2 = radice.getSuccessivo();
+
+        while (p2 != null && vN > p2.getValore()) {
+            p1 = p2;
+            p2 = p1.getSuccessivo();
+        }
+
+        n.setSuccessivo(p2);
+        p1.setSuccessivo(n);
+
+    }
+    
+
     public String toString() {
         String s = "Elementi della lista: ";
         Nodo p = radice;
