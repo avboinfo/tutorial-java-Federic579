@@ -134,9 +134,9 @@ public class Lista {
         */
     }
 
-    boolean remove_Pos(int pos){
+    /*boolean remove_Pos(int pos){
 
-    }
+    }*/
 
     boolean removeValue(int value){
         int index = -1;
