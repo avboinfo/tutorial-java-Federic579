@@ -1,9 +1,7 @@
 
 package S_Stack;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class Stack<T> {
     
@@ -31,6 +29,6 @@ public class Stack<T> {
             s += list.get(i) + "\n";
         }
         return s;
-    }    
+    }
     
 }

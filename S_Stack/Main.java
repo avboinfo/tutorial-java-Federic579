@@ -1,10 +1,7 @@
 package S_Stack;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Main {
 
@@ -35,17 +32,6 @@ public class Main {
                 buffer += tempPop.charAt(j-1);
             }
             System.out.println(buffer);
-            try {
-                File file = new File("nuovo.txt");
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(buffer);
-            bw.flush();
-            bw.close();
-    }
-    catch(IOException e) {
-        e.printStackTrace();
-    }
         }
     }
 }
