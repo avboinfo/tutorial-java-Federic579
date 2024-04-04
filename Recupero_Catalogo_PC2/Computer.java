@@ -23,7 +23,7 @@ public class Computer {
 }
 
 public void aggiungiComputer(String marca, String modello, int CPU_velocita, int RAM_size) {
-    Computer computer = new Computer(marca, modello, CPU_velocita, RAM_size);
+    Computer computer = new Computer(RAM_size, marca, modello, CPU_velocita, RAM_size, RAM_size, RAM_size, RAM_size);
     computer.add(computer);
 }
 
