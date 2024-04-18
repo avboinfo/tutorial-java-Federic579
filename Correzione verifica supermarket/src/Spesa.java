@@ -1,30 +1,50 @@
-package Supermercato;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Spesa {
-    Nodo head;
-    double costoTot;
-    
-    public void addProdotto(Prodotti prodotto) {
-        Nodo nodoSuccessivo = new Nodo(prodotto);
-        nodoSuccessivo.next = head;
-        head = nodoSuccessivo;
-        costoTot += prodotto.getCosto();
+    Lista<Prodotto> carrello;
+    Lista<Prodotto> anagrafica;
+
+    public Spesa(){
+        carrello = new Lista<>();
+        anagrafica = new Lista<>();
+        caricaProd();
+        System.out.println(anagrafica);
     }
-    
-    public void delLastProd() {
-        if (head != null) {
-            costoTot -= head.prodotto.getCosto();
-                head = head.next;
+
+    public void caricaProd() {
+        File f = new File("data/Prodotti.csv");
+        try {
+            Scanner scan = new Scanner(f);
+            while (scan.hasNextLine()) {
+                String[] field = scan.nextLine().split(";");
+                anagrafica.addHead(new Prodotto(field[0], field[1], Double.parseDouble(field[2])));
+            }
+            scan.close();
+        } catch (FileNotFoundException e) {
+        System.out.println("Errore");
         }
     }
-    
+
+    @Override
+    public String toString() {
+        return "Carrello:\n" + carrello;
+    }
+
+    public void addProdotto(Prodotto prodotto) {
+        carrello.addHead(prodotto);
+    }
+ 
+    public void delLastProd() {
+        carrello.removeHead();
+    }
+/*    
     public void eliminaProdotto(String codice) {
         Nodo tmp = head;
         Nodo prevProd = null;
     
-        while (tmp != null && !tmp.prodotto.getCodice().equals(codice)) {
+        while (tmp != null && !tmp.getCodice().(codice)) {
             prevProd = tmp;
             tmp = tmp.next;
         }
@@ -74,7 +94,7 @@ public class Spesa {
     }
 
     
-    class Nodo {
+   /*  class Nodo {
         public Object codice;
         Prodotti prodotto;
         Nodo next;
@@ -83,6 +103,8 @@ public class Spesa {
             this.prodotto = prodotto;
             this.next = null;
         }
-    }
+ 
+    }*/
+    
 }
 
